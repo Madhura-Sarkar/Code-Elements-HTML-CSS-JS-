@@ -12,5 +12,7 @@ A customizable snapscroll element that works in both horizontal and vertical dir
 
 ## Demo
 
-You can view a live demo of the SnapScroll Element in action [here](#).
+You can view a live video demo of the SnapScroll Element in action -->
+
+https://github.com/user-attachments/assets/b7223026-b6ad-4fa1-91ca-80499c3c7d9c
 
