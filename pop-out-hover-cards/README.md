@@ -10,5 +10,6 @@ This project demonstrates an interactive hover effect where hovering over a main
 
 Demo Video -->
 
-https://github.com/user-attachments/assets/1394d87f-3278-4f2c-95f5-6800fc3a1aa0
+https://github.com/user-attachments/assets/439b7a18-16ad-4fc9-aeb6-bf9dfeee655d
+
 
