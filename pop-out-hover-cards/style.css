@@ -1,0 +1,175 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #b8c1ec;
+}
+
+.wrapper {
+    display: flex;
+    gap: 100px;
+    /* Space between the two containers */
+}
+
+.purse-container {
+    position: relative;
+    display: inline-block;
+}
+
+.purse-image {
+    width: 300px;
+    /* Increase the size of the purse image */
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.image-version .insert-cards {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 10px;
+    /* Increase gap between cards */
+    opacity: 0;
+    /* Cards are hidden initially */
+    transition: opacity 0.3s ease;
+    flex-direction: column;
+    /* Stack the cards vertically */
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+    /* Keep cards behind the purse initially */
+}
+
+.image-version .card {
+    width: 350px;
+    /* Increase the card size */
+    height: 160px;
+    /* Increase the card height */
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: -160px;
+    /* Adjust the initial position */
+    left: -180px;
+    /* Adjust the initial position */
+    opacity: 0;
+    /* Cards are initially invisible */
+    transform: translateY(0) rotate(0deg);
+    /* Start with a default position */
+    transition: transform 0.5s ease, opacity 0.3s ease;
+}
+
+.image-version .card-1 {
+    background-image: url('https://www.pngmart.com/files/22/Debit-Card-PNG-Transparent.png');
+    width: 360px;
+    transform: translateY(10px) rotate(10deg);
+}
+
+.image-version .card-2 {
+    background-image: url('https://pngimg.com/uploads/credit_card/credit_card_PNG33.png');
+    transform: translateY(10px) rotate(10deg);
+}
+
+.image-version .card-3 {
+    background-image: url('https://pngimg.com/d/credit_card_PNG37.png');
+    transform: translateY(10px) rotate(10deg);
+}
+
+.purse-container:hover .insert-cards {
+    opacity: 1;
+    /* Show the cards on hover */
+}
+
+.purse-container:hover .card {
+    opacity: 1;
+    /* Make the cards visible */
+}
+
+.purse-container:hover .card-1 {
+    transform: translateY(-30px) rotate(5deg);
+    /* Move the first card out */
+}
+
+.purse-container:hover .card-2 {
+    transform: translateY(-30px) rotate(5deg);
+    /* Move the second card out */
+    top: -130px;
+}
+
+.purse-container:hover .card-3 {
+    transform: translateY(-30px) rotate(5deg);
+    /* Move the third card out */
+    top: -100px;
+}
+
+
+/* Styling for wireframe version cards */
+
+.wireframe-version .insert-cards {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 10px;
+    /* Increase gap between cards */
+    opacity: 0;
+    /* Cards are hidden initially */
+    transition: opacity 0.3s ease;
+    flex-direction: column;
+    /* Stack the cards vertically */
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+    /* Keep cards behind the purse initially */
+}
+
+.wireframe-version .card {
+    width: 280px;
+    /* Increase the card size */
+    height: 160px;
+    /* Increase the card height */
+    border-radius: 20px;
+    border: 1px solid #040050;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: -160px;
+    /* Adjust the initial position */
+    left: -140px;
+    /* Adjust the initial position */
+    opacity: 0;
+    /* Cards are initially invisible */
+    transform: translateY(0) rotate(0deg);
+    /* Start with a default position */
+    transition: transform 0.5s ease, opacity 0.3s ease;
+}
+
+.wireframe-version .purse-image {
+    width: 300px;
+    height: 200px;
+    background-color: #433878;
+    border-radius: 20px;
+}
+
+.wireframe-version .card-1 {
+    background-color: #7E60BF;
+}
+
+.wireframe-version .card-2 {
+    background-color: #E4B1F0;
+}
+
+.wireframe-version .card-3 {
+    background-color: #FFE1FF;
+}
