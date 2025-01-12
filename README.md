@@ -1,4 +1,4 @@
-# Code-Elements-HTML-CSS-JS-
+# UI-Code-Elements-HTML-CSS-JS-
 # Code Elements Repository
 
 Welcome to the **Code Elements** repository! This project is dedicated to creating and sharing small, reusable web elements using HTML, CSS, and JavaScript. Each element in this repository is designed to be easy to understand, implement, and customize, making it a valuable resource for web developers looking to enhance their projects with creative and functional components.
