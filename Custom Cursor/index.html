@@ -1,1 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Cursor Following Effect</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cursor">
+    </div>
+    <script>
+        let mouseX = 0,
+            mouseY = 0,
+            cursorX = 0,
+            cursorY = 0;
+    
+        const cursor = document.querySelector('.cursor');
+    
+        document.addEventListener("mousemove", (e) => {
+            mouseX = e.pageX;
+            mouseY = e.pageY;
+        });
+    
+        function animate() {
+            cursorX += (mouseX - cursorX) * 0.1;
+            cursorY += (mouseY - cursorY) * 0.1;
+    
+            cursor.style.left = cursorX + "px";
+            cursor.style.top = cursorY + "px";
+    
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
 
+</body>
+</html>
