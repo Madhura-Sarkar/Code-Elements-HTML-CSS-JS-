@@ -1,0 +1,25 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    cursor: url('https://images.vexels.com/media/users/3/210407/isolated/preview/30bd1ec5d24cba9aedff09335876be67-paint-brush-illustration-paint-by-vexels.png'), auto;
+}
+
+
+body {
+    background-image: url('https://cdn.dribbble.com/userupload/6347018/file/original-4c4dd41498c40384b89c8f8a7ff0f357.png?resize=1600x1200');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; 
+}
+
+.cursor {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: papayawhip;
+    border: 1px solid black;
+    border-radius: 50%;
+    pointer-events: none;
+}
