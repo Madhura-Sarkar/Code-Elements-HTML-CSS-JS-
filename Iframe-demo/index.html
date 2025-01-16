@@ -1,1 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iframe Demo - Target for a Link</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f06, #4a90e2);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        iframe {
+            width: 100%;
+            height: 300px;
+            border-radius: 8px;
+            border: none;
+            margin-top: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            margin-top: 20px;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 1.1rem;
+            color: #4a90e2;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        a:hover {
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            iframe {
+                height: 250px;
+            }
+
+            ul {
+                margin-top: 15px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            iframe {
+                height: 200px;
+            }
+
+            a {
+                font-size: 1rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Iframe Demo - Target for a Link</h1>
+        <iframe name="contentFrame" style="background: rgba(255, 255, 255, 0.01);
+    backdrop-filter: blur(15px); border: 1px solid #fff;
+    border-radius: 20px;"></iframe>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Naruto" target="contentFrame">Naruto</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/One_Piece" target="contentFrame">One Piece</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Attack_on_Titan" target="contentFrame">Attack on Titan</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/My_Hero_Academia" target="contentFrame">My Hero Academia</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Demon_Slayer" target="contentFrame">Demon Slayer</a></li>
+        </ul>        
+        <p>(When the target of a link matches the name of an iframe, the link will open in the iframe)</p>
+    </div>
+</body>
+</html>
 
