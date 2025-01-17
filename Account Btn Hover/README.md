@@ -9,3 +9,7 @@ This project adds a hover effect to an account button in the footer or profile s
 - Works well with modern web design practices.
 
 ## video demo
+
+https://github.com/user-attachments/assets/ea682716-e2b6-4407-96e7-3e923a0273b5
+
+
