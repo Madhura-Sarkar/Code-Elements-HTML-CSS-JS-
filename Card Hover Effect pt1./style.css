@@ -1,0 +1,225 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #000;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 120vh;
+}
+
+.cards{
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;  /* Allow wrapping to the next line */
+    justify-content: center;  /* Center the cards */
+}
+
+.card1 {
+    width: 190px;
+    height: 254px;
+    background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
+    border-radius: 20px;
+    transition: all .3s;
+   }
+   
+   .card {
+    width: 190px;
+    height: 254px;
+    background-color: #1a1a1a;
+    border-radius: 20px;
+    transition: all .2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #b8c1ec;
+   }
+
+   .card span{
+    z-index: 1;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    background: none;
+   }
+   
+   .card:hover {
+    transform: scale(0.98);
+    border-radius: 20px;
+   }
+   
+   .card1:hover {
+    box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.30);
+   }
+
+.card2 {
+    width: 190px;
+    height: 254px;
+    background-image: linear-gradient(163deg, #e81cff 0%, #40c9ff 100%);
+    border-radius: 20px;
+    transition: all .3s;
+   }
+  
+   .card2:hover {
+    box-shadow: 0px 0px 30px 1px rgba(225, 0, 255, 0.386);
+   }
+
+.card3 {
+    width: 190px;
+    height: 254px;
+    background-image: linear-gradient(163deg, red 0%, yellow 100%);
+    border-radius: 20px;
+    transition: all .3s;
+   }
+  
+   .card3:hover {
+    box-shadow: 0px 0px 30px 1px rgba(255, 145, 0, 0.603);
+   }
+
+.card4 {
+    width: 190px;
+    height: 254px;
+    background-image: linear-gradient(163deg, #1cc2ff 0%, #ff261b 100%);
+    border-radius: 20px;
+    transition: all .3s;
+   }
+  
+   .card4:hover {
+    box-shadow: 0px 0px 30px 1px rgba(0, 255, 255, 0.603);
+   }
+
+   .card5 {
+    width: 190px;
+    height: 254px;
+    border-radius: 20px;
+    background: #171717;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0px 0px 3px 1px #00000088;
+    cursor: pointer;
+  }
+  
+  .card5::before {
+    opacity: 0;
+    content: " ";
+    position: absolute;
+    display: block;
+    width: 80px;
+    height: 360px;
+    background: linear-gradient(#fd0a7c, #186ffa);
+    transition: opacity 300ms;
+    animation: rotation_9018 8000ms infinite linear;
+    animation-play-state: paused;
+  }
+  
+  .card5:hover::before {
+    opacity: 1;
+    animation-play-state: running;
+  }
+  
+  .card5::after {
+    position: absolute;
+    content: " ";
+    display: block;
+    width: 250px;
+    height: 360px;
+    background: #17171733;
+    backdrop-filter: blur(50px);
+  }
+  
+  @keyframes rotation_9018 {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .card6 {
+    color: white;
+    position: relative;
+    font-family: sans-serif;
+  }
+  
+  .card6::before,
+  .card6::after {
+    content: "";
+    background-color: #fab5704c;
+    position: absolute;
+  }
+  
+  .card6::before {
+    border-radius: 20px;
+    width: 6rem;
+    height: 6rem;
+    top: 30%;
+    right: 20%;
+  }
+  
+  .card6 .box {
+    width: 190px;
+    height: 254px;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.074);
+    border: 1px solid rgba(255, 255, 255, 0.222);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* Center vertically */
+    align-items: center;  /* Center horizontally */
+    transition: all ease 0.3s;
+  }
+  
+  .card6 .box span {
+    background: none;  /* Remove background */
+    color: inherit;  /* Inherit the text color */
+    font-size: 1.25rem;  /* Optional: Adjust the font size */
+  }
+  
+  .card6 .box:hover {
+    box-shadow: 0px 0px 20px 1px #ffb367be;
+    border: 1px solid rgba(255, 255, 255, 0.454);
+  }
+  
+  .card7 {
+    width: 190px;
+    height: 254px;
+    background: rgba(255, 255, 255, 0.074);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    transition: all 0.3s;
+    cursor: pointer; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card7 .card span {
+    display: block;
+    text-align: center;
+    padding: 10px;
+}
+
+.card7:hover {
+    box-shadow: 0px 0px 20px 1px #fff4e8;
+    border: 1px solid white;
+}
+
+.card7:active {
+    transform: translateY(4px); /* Move the card down to simulate being pressed */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Shadow to create the 3D effect */
+    border: 2px solid #fff;
+}
