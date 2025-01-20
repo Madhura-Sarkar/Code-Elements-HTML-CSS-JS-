@@ -1,4 +1,4 @@
-# 3D Hover and Clickable Card Effects
+# Hover and Clickable Card Effects
 
 This project demonstrates simple CSS hover and click effects for a card component. The cards have subtle hover animations that scale and change their appearance when hovered or clicked.
 
