@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accordion Examples</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="example-container">
+    <!-- First Example: <details> and <summary> -->
+    <div class="example">
+      <h2>Details Accordion</h2>
+      <details>
+        <summary>What is an Accordion?</summary>
+        <div>An accordion is a collapsible content panel used in web design.</div>
+      </details>
+      <details>
+        <summary>Why use an Accordion?</summary>
+        <div>It saves space and organizes content effectively.</div>
+      </details>
+      <details>
+        <summary>How to create an Accordion?</summary>
+        <div>You can use HTML, CSS, and sometimes JavaScript.</div>
+      </details>
+    </div>
+
+    <!-- Second Example: Checkbox Accordion -->
+    <div class="example">
+      <h2>Checkbox Accordion</h2>
+      <div class="accordion">
+        <div class="accordion-item">
+          <label class="accordion-header" for="item1">What is an Accordion?</label>
+          <input type="checkbox" id="item1">
+          <div class="accordion-content">
+            An accordion is a collapsible content panel used in web design.
+          </div>
+        </div>
+        <div class="accordion-item">
+          <label class="accordion-header" for="item2">Why use an Accordion?</label>
+          <input type="checkbox" id="item2">
+          <div class="accordion-content">
+            It saves space and organizes content effectively.
+          </div>
+        </div>
+        <div class="accordion-item">
+          <label class="accordion-header" for="item3">How to create an Accordion?</label>
+          <input type="checkbox" id="item3">
+          <div class="accordion-content">
+            You can use HTML, CSS, and sometimes JavaScript.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
