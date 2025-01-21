@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notification Badge</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background: #111827;
+      font-family: Arial, sans-serif;
+    }
+
+    .notification-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(145deg, #ffffff, #d4d4d4);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2), -3px -2px 1px rgba(170, 170, 170, 0.8);
+      font-size: 24px;
+      color: #555;
+    }
+
+    .badge {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      min-width: 20px;
+      height: 20px;
+      background: #ff5252;
+      color: #fff;
+      font-size: 12px;
+      font-weight: bold;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    .badge.hidden {
+      transform: scale(0);
+      opacity: 0;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      background: #ff5252;
+      border-radius: 50%;
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      display: none;
+    }
+
+    .dot.visible {
+      display: block;
+    }
+
+    .buttons {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .button {
+      padding: 10px 20px;
+      background: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+
+    .button:hover {
+      background: #45a049;
+    }
+
+    .button.clear-all {
+      background: #ff5252;
+    }
+
+    .button.clear-all:hover {
+      background: #e04242;
+    }
+  </style>
+</head>
+<body>
+  <div class="notification-container">
+    <div class="icon">🔔</div>
+    <div class="badge hidden" id="badge">0</div>
+    <div class="dot" id="dot"></div>
+  </div>
+
+  <div class="buttons">
+    <button class="button" onclick="incrementBadge()" style="background-color: #16a34a;">Add Notification</button>
+    <button class="button" onclick="decrementBadge()" style="background-color: #2563eb;">Clear Notification</button>
+    <button class="button clear-all" onclick="clearAll()" style="background-color: #dc2626;">Clear All Notifications</button>
+    <button class="button" onclick="showDot()" style="background-color: #d97706;">Show Dot</button>
+    <button class="button" onclick="hideDot()" style="background-color: #4b5563;">Hide Dot</button>
+  </div>
+
+  <script>
+    let count = 0;
+
+    function updateBadgeVisibility() {
+      const badge = document.getElementById('badge');
+      if (count > 0) {
+        badge.classList.remove('hidden');
+      } else {
+        badge.classList.add('hidden');
+      }
+    }
+
+    function incrementBadge() {
+      const badge = document.getElementById('badge');
+      count++;
+      badge.textContent = count;
+      updateBadgeVisibility();
+    }
+
+    function decrementBadge() {
+      const badge = document.getElementById('badge');
+      if (count > 0) {
+        count--;
+        badge.textContent = count;
+        updateBadgeVisibility();
+      }
+    }
+
+    function clearAll() {
+      const badge = document.getElementById('badge');
+      count = 0;
+      badge.textContent = count;
+      updateBadgeVisibility();
+    }
+
+    function showDot() {
+      const dot = document.getElementById('dot');
+      dot.classList.add('visible');
+    }
+
+    function hideDot() {
+      const dot = document.getElementById('dot');
+      dot.classList.remove('visible');
+    }
+  </script>
+</body>
+</html>
