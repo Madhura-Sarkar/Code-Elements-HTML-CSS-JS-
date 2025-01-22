@@ -10,5 +10,9 @@ Smooth Animations: CSS animations for fluid progress bar transitions.
 
 Customizable: Easily modify the colors, styles, and measurements to suit your needs.
 
-## Demo -->
+## Video Demo -->
+
+
+
+https://github.com/user-attachments/assets/f4bb2c57-519d-4dd4-bcb8-563fe170fedc
 
