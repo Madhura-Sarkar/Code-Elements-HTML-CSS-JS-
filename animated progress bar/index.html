@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress Bar with Measurements</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      background: #fef6e4;
+    }
+
+    #button-container {
+  text-align: center;
+}
+
+#button-3d {
+  background: linear-gradient(145deg, #6c63ff, #4b46b8);
+  border: none;
+  color: white;
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2),
+              inset 2px 2px 5px rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease;
+}
+
+#button-3d:active {
+  transform: translateY(4px);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2),
+              inset 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+    .progress-container {
+      width: 80%;
+      background: #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .progress-bar {
+      height: 20px;
+      width: 0;
+      background: linear-gradient(90deg, #6a11cb, #2575fc);
+      transition: width 0.5s ease-in-out;
+    }
+
+    .measurements {
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+      margin-top: 5px;
+    }
+
+    .measurement {
+      cursor: pointer;
+      color: #2575fc;
+      font-weight: bold;
+    }
+
+    .measurement:hover {
+      color: #6a11cb;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress-container">
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
+
+  <div class="measurements">
+    <span class="measurement" id="button-3d" onclick="setProgress(10)">10%</span>
+    <span class="measurement" id="button-3d" onclick="setProgress(30)">30%</span>
+    <span class="measurement" id="button-3d" onclick="setProgress(50)">50%</span>
+    <span class="measurement" id="button-3d" onclick="setProgress(70)">70%</span>
+    <span class="measurement" id="button-3d" onclick="setProgress(100)">100%</span>
+  </div>
+
+  <script>
+    function setProgress(percentage) {
+      const progressBar = document.getElementById('progress-bar');
+      progressBar.style.width = `${percentage}%`;
+    }
+  </script>
+</body>
+</html>
