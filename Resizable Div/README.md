@@ -13,3 +13,6 @@ This is a simple web application that allows you to create a resizable two-panel
 - **JavaScript**: Handling the drag functionality to resize the left panel.
 
 ## Demo Video -->
+
+https://github.com/user-attachments/assets/2b2d0427-c36e-4b2b-bb3c-d37071200a2b
+
