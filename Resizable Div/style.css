@@ -1,0 +1,60 @@
+/* Basic Reset */
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  background-color: #232946;
+}
+
+.container {
+  display: flex;
+  width: 80%;
+  height: 80%;
+  border: 2px solid #ddd; /* Thicker border for visibility */
+  background-color: #fff; /* White background for container */
+  overflow: hidden;
+  border-radius: 8px; /* Rounded corners for a smooth look */
+}
+
+.left-panel, .right-panel {
+  flex-grow: 1;
+  overflow: auto;
+  padding: 20px; /* More padding for content spacing */
+  box-sizing: border-box;
+  transition: flex-basis 0.2s ease; /* Smooth transition when resizing */
+}
+
+.left-panel {
+  background-color: #b8c1ec;
+}
+
+.right-panel {
+  background-color: #eebbc3;
+}
+
+.divider {
+  width: 10px; /* Slightly wider divider for easier grabbing */
+  background-color: #fff; /* Darker divider color for better visibility */
+  cursor: col-resize;
+  user-select: none;
+  height: 100%; /* Full height of the container */
+  transition: background-color 0.2s ease; /* Smooth transition on hover */
+}
+
+.divider:hover {
+  background-color: #555; /* Darker color when hovering */
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 1.5em;
+  color: #fff; /* White text for better contrast */
+}
+
+p {
+  font-size: 1em;
+  color: #fff; /* White text for better contrast */
+}
