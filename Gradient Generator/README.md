@@ -10,4 +10,5 @@ A simple and user-friendly Gradient Generator built with HTML, CSS, and JavaScri
 
 ## Video Demo
 
+https://github.com/user-attachments/assets/e3b55184-b450-4224-9254-b1141fa73021
 
