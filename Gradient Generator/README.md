@@ -8,6 +8,6 @@ A simple and user-friendly Gradient Generator built with HTML, CSS, and JavaScri
 - Adjustable gradient direction.
 - Copy-ready CSS gradient code.
 
-## Live Demo
+## Video Demo
 
 
