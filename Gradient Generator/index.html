@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="gradient-preview" id="gradientPreview"></div>
+
+    <div class="controls">
+        <label>
+            Start Color: <input type="color" id="startColor" value="#ff0000" style="margin-left: 20px;">
+        </label>
+        <label>
+            Mid Color: <input type="color" id="midColor" value="#ff00ff" style="margin-left: 27px;">
+        </label>
+        <label>
+            End Color: <input type="color" id="endColor" value="#0000ff" style="margin-left: 25px;">
+        </label>
+        <label>
+            Direction:
+            <select id="direction" class="direction-select">
+                <option value="to right">Left to Right</option>
+                <option value="to bottom">Top to Bottom</option>
+                <option value="to top">Bottom to Top</option>
+                <option value="to left">Right to Left</option>
+                <option value="135deg">Diagonal</option>
+            </select>
+        </label>
+    </div>
+
+    <div class="output">
+        <p>CSS Code:</p>
+        <code id="cssCode">background: linear-gradient(to right, #ff0000, #ff00ff, #0000ff);</code>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
