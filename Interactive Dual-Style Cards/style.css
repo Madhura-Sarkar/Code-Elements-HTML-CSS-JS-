@@ -1,0 +1,86 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-color: #0f0e17;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 80px;
+}
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+.cards {
+    display: flex;
+    gap: 15px;
+}
+.cards.wireframe .card {
+    background-color: transparent;
+    border: 2px dashed #fff;
+    color: #fff;
+    height: 100px;
+    width: 250px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.cards.wireframe .card p.tip {
+    font-size: 1em;
+    font-weight: 700;
+}
+.cards.wireframe .card p.second-text {
+    font-size: 0.7em;
+}
+.cards .pink {
+    background-color: #e53170;
+}
+.cards .blue {
+    background-color: #8bd3dd;
+}
+.cards .orange {
+    background-color: #ff8906;
+}
+.cards .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    height: 100px;
+    width: 250px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: 400ms;
+}
+.cards .card p.tip {
+    font-size: 1em;
+    font-weight: 700;
+}
+.cards .card p.second-text {
+    font-size: 0.7em;
+}
+.cards .card:hover {
+    transform: scale(1.1);
+}
+.cards:hover > .card:not(:hover) {
+    filter: blur(5px);
+    transform: scale(0.9);
+}
