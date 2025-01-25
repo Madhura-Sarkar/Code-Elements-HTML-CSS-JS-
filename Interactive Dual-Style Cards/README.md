@@ -7,7 +7,7 @@ This project demonstrates two styles of card containers:
 ## Features
 - **Wireframe Cards**: Minimalist design using dashed borders and transparent backgrounds for quick prototyping.
 - **Designed Cards**: Interactive and colorful cards with smooth hover animations and scaling effects.
-- Responsive design that adjusts to the center of the viewport.
+- Responsive design that adjusts to the center of the viewport. (not responsive in smaller device)
 
 ## Technologies Used
 - **HTML5** for structure.
