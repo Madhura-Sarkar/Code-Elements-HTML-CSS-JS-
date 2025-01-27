@@ -4,8 +4,10 @@ This is a basic weather web app that fetches and displays weather data from a pu
 
 ## Features
 - Displays the current weather of a given location.
-- Shows details like temperature, humidity, and weather conditions.
+- Shows details like Local Date & Time.
+- Shows details like temperature.
 
 ## Technologies Used
 - HTML, CSS, JavaScript
 - OpenWeatherMap API (or any other weather API)
+
