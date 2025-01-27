@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        /* General page styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #3da9fc;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container for centering elements */
+        .container {
+            text-align: center;
+            background: #ffffff;
+            border-right: 2px solid black;
+            border-bottom: 2px solid black;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        /* Input and button styling */
+        input[type="text"] {
+            background-color: #5f6c7b;
+            padding: 10px;
+            width: 80%;
+            margin: 10px 0;
+            border-right: 2px solid #000;
+            border-bottom: 2px solid #000;
+            color: white;
+            border-radius: 20px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input[type="text"]::placeholder {
+            color: white;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #6C63FF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #5a53e1;
+        }
+
+        .box{
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+            padding: 20px;
+            background-color: #e3f6f5;
+        }
+
+        /* Adjustments for smaller screens */
+        @media (max-width: 600px) {
+            .container {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text" placeholder="Enter city name" id="city">
+        <button id="btn">Search</button>
+
+        <h2 id="name" class="box">City Name</h2>
+        <h2 id="time" class="box">City Time</h2>
+        <h2 id="temp" class="box">City Weather</h2>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
