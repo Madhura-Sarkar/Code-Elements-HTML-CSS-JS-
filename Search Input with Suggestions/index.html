@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search with Suggestions</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="search-panels">
+        <div class="panel1">
+            <div class="search-container">
+                <h1>Fruits Search</h1>
+                <input type="text" id="search-fruits" placeholder="Search Fruits..." oninput="showSuggestions(this.value, 'fruits')" />
+                <ul id="suggestions-fruits" class="suggestions-list"></ul>
+            </div>
+            <div class="search-container">
+                <h1>Flowers Search</h1>
+                <input type="text" id="search-flowers" placeholder="Search Flowers..." oninput="showSuggestions(this.value, 'flowers')" />
+                <ul id="suggestions-flowers" class="suggestions-list"></ul>
+            </div>
+        </div>
+        <div class="panel2">
+            <div class="search-container">
+                <h1>Places Search</h1>
+                <input type="text" id="search-places" placeholder="Search Places..." oninput="showSuggestions(this.value, 'places')" />
+                <ul id="suggestions-places" class="suggestions-list"></ul>
+            </div>
+            <div class="search-container">
+                <h1>Foods Search</h1>
+                <input type="text" id="search-foods" placeholder="Search Foods..." oninput="showSuggestions(this.value, 'foods')" />
+                <ul id="suggestions-foods" class="suggestions-list"></ul>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
