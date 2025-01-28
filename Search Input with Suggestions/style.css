@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #e08a7a;
+}
+
+.search-panels {
+    width: 90%;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 100px; 
+}
+
+.panel1, .panel2 {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 60px;
+}
+
+.search-container {
+    position: relative;
+    width: calc(50% - 15px); /* Adjust width for the new gap between items */
+}
+
+h1{
+    color: white;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    border-right: 3px solid #6c3c35;
+    border-bottom: 3px solid #6c3c35;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added transition for transform and box-shadow */
+}
+
+input[type="text"]:hover, input[type="text"]:focus {
+    transform: translateY(-5px); /* Moves the input slightly upwards */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow to enhance the bubble effect */
+}
+
+
+.suggestions-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: white;
+    max-height: 150px;
+    overflow-y: auto;
+    display: none;
+}
+
+.suggestions-list li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestions-list li:hover {
+    background-color: #f0f0f0;
+}
