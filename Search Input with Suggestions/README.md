@@ -17,3 +17,7 @@ This project provides a simple search suggestion feature for various categories 
 - **index.html**: The main HTML file for the project.
 - **styles.css**: Custom CSS styles.
 - **script.js**: JavaScript file handling the suggestion logic.
+
+## Video Demo -->
+
+[Search with suggestion.webm](https://github.com/user-attachments/assets/828bbaec-c1d6-4a45-a864-2c793d1aa534)
