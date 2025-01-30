@@ -16,7 +16,11 @@ A simple and interactive sticky note widget built using HTML, CSS, and JavaScrip
 ## Tech Stack
 HTML – Structure
 CSS – Styling
-JavaScript – Functionality
+JavaScript – Fun
+
+https://github.com/user-attachments/assets/b84229f3-6241-4bb4-8767-ffe70f037fd5
+
+ctionality
 
 ## Video Demo -->
 
