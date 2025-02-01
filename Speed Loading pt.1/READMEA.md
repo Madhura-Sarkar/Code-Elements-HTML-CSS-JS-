@@ -15,3 +15,5 @@ This project showcases **4 different types of loading spinners** using **HTML, C
 
 ## Video Demo -->
 
+https://github.com/user-attachments/assets/b3ac24bc-c5c8-4663-be3c-4b7caab5b963
+
