@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading Spinners</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="spinner-container">
+    <div class="spinner spinner1"></div>
+    <div class="spinner spinner2"></div>
+    <div class="spinner spinner3">
+      <div></div><div></div><div></div>
+    </div>
+    <div class="spinner spinner4"></div>
+  </div>
+
+  <div class="buttons">
+    <button onclick="switchSpinner(1)">Spinner 1</button>
+    <button onclick="switchSpinner(2)">Spinner 2</button>
+    <button onclick="switchSpinner(3)">Spinner 3</button>
+    <button onclick="switchSpinner(4)">Spinner 4</button>
+  </div>
+
+  <script>
+    function switchSpinner(num) {
+      const spinners = document.querySelectorAll('.spinner');
+      spinners.forEach((spinner, index) => {
+        spinner.style.display = (index === num - 1) ? 'block' : 'none';
+      });
+    }
+    switchSpinner(1); // Show the first spinner by default
+  </script>
+
+</body>
+</html>
