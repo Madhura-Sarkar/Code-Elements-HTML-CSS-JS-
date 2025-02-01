@@ -1,0 +1,121 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+  }
+  
+  .spinner-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    width: 100px;
+    position: relative;
+  }
+  
+  /* Hide all spinners initially */
+  .spinner {
+    display: none;
+    position: absolute;
+  }
+  
+  /* Spinner 1: Rotating Circle */
+  .spinner1 {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  /* Spinner 2: Dual Ring */
+  .spinner2 {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .spinner2::after {
+    content: " ";
+    display: block;
+    width: 46px;
+    height: 46px;
+    margin: 2px;
+    border-radius: 50%;
+    border: 5px solid #ff4757;
+    border-color: #ff4757 transparent #ff4757 transparent;
+    animation: spin 1.2s linear infinite;
+  }
+  
+  /* Spinner 3: Bouncing Dots */
+  .spinner3 {
+    display: flex;
+    justify-content: space-around;
+    width: 80px;
+  }
+  
+  .spinner3 div {
+    width: 15px;
+    height: 15px;
+    background-color: #119e4c;
+    border-radius: 50%;
+    animation: bounce 0.6s infinite alternate;
+  }
+  
+  .spinner3 div:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .spinner3 div:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  
+  /* Spinner 4: Pulsing Circle */
+  .spinner4 {
+    width: 50px;
+    height: 50px;
+    background-color: #9b59b6;
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+  }
+  
+  /* Animations */
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  @keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-20px); }
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(0.95); opacity: 1; }
+    70% { transform: scale(1.1); opacity: 0.7; }
+    100% { transform: scale(0.95); opacity: 1; }
+  }
+  
+  /* Button Styling */
+  .buttons {
+    margin-top: 20px;
+  }
+  
+  button {
+    margin: 5px;
+    padding: 10px 15px;
+    border: none;
+    background: #00a0a0;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background: #00414a;
+  }
+  
