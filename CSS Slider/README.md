@@ -10,3 +10,5 @@ This is a simple CSS-only animated slider that creates a scrolling effect using 
 
 ## video demo -->
 
+https://github.com/user-attachments/assets/6fc8e875-36c7-46ba-9d4a-9d0d47a979a7
+
