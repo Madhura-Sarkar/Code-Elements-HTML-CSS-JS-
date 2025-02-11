@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Submit Buttons</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            gap: 20px;
+            background: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+        button {
+            position: relative;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        /* Spinner Button */
+        .spinner-btn {
+            background: #007bff;
+            color: white;
+        }
+        .spinner {
+            display: none;
+            width: 16px;
+            height: 16px;
+            border: 2px solid white;
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Progress Button */
+        .progress-btn {
+            background: #28a745;
+            color: white;
+            overflow: hidden;
+        }
+        .progress-bar {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.5);
+            transition: width 2s;
+        }
+
+        /* Checkmark Button */
+        .check-btn {
+            background: #ff9800;
+            color: white;
+        }
+        .checkmark {
+            display: none;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <button class="spinner-btn" onclick="startSpinner(this)">Submit <span class="spinner"></span></button>
+    <button class="progress-btn" onclick="startProgress(this)">Submit <div class="progress-bar"></div></button>
+    <button class="check-btn" onclick="startCheck(this)">Submit <span class="checkmark">✔</span></button>
+    
+    <script>
+        function startSpinner(button) {
+            let spinner = button.querySelector(".spinner");
+            button.disabled = true;
+            button.innerHTML = '<span class="spinner"></span>';
+            spinner.style.display = "inline-block";
+            setTimeout(() => {
+                button.innerHTML = "Submitted!";
+                button.disabled = false;
+            }, 2000);
+        }
+        
+        function startProgress(button) {
+            let progress = button.querySelector(".progress-bar");
+            progress.style.width = "100%";
+            setTimeout(() => {
+                button.innerHTML = "Completed!";
+            }, 2000);
+        }
+        
+        function startCheck(button) {
+            let checkmark = button.querySelector(".checkmark");
+            button.innerHTML = "Processing...";
+            setTimeout(() => {
+                button.innerHTML = '<span class="checkmark">✔</span> Done!';
+                checkmark.style.display = "inline-block";
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
