@@ -42,6 +42,10 @@ To see this modal in action:
 2. Open the file in a browser.
 3. Click the "Open Modal" button to view the popup.
 
+https://github.com/user-attachments/assets/cf3d3d6a-1406-4520-92e0-98f04e211943
+
+
+
 ---
 
 ## Future Enhancements
