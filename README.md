@@ -40,7 +40,7 @@ Contributions are welcome! If you have an idea for a new element or an improveme
 
 ## Stay Updated
 
-Follow me on Twitter [@mytwitterhandle](https://x.com/webstudy2024) for updates on new elements and other web development tips.
+Follow me on Twitter [@mytwitter](https://x.com/webstudy2024) for updates on new elements and other web development tips.
 
 ## License
 
