@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Effect</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Custom Styles -->
+    <style>
+        /* Custom Animation for Scrolling */
+        @keyframes scrollLeft {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .animate-scrollLeft {
+            animation: scrollLeft 20s linear infinite;
+        }
+
+        /* Mask Effect */
+        .mask-effect {
+            mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0));
+        }
+
+        /* Service box styles */
+        .insurance-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 10rem;
+            height: 13rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+
+        .insurance-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        /* Container for the scrolling content */
+        .scroll-container {
+            display: flex;
+            width: 100%;
+            animation: scrollLeft 20s linear infinite;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Insurance Section -->
+    <div class="container py-5">
+        <div class="underline-text text-center mb-5">
+            <h6 style="color: #75A7BE;">All Major Insurance <span style="color: #D90C0D;">Accepted</span></h6>
+            <h1 style="color: #2193D1;">Insurance Facility </h1>
+        </div>
+
+        <!-- Left Scrolling Wrapper -->
+        <div class="overflow-hidden mb-4 mask-effect">
+            <div class="scroll-container" id="scrollingWrapper">
+                <!-- Replace text with images here -->
+                <div class="d-flex">
+                    <div class="insurance-box p-2 text-center">
+                        <img src="https://yourcenter.ae/website-assets/insurance/i6.png" alt="">
+                    </div>
+                    <div class="insurance-box p-2 text-center">
+                        <img src="https://yourcenter.ae/website-assets/insurance/i10.jpeg" alt="ins 1">
+                    </div>
+                    <div class="insurance-box p-2 text-center">
+                        <img src="https://yourcenter.ae/website-assets/insurance/i9.png" alt="ins 2">
+                    </div>
+                    <div class="insurance-box p-2 text-center">
+                        <img src="https://yourcenter.ae/website-assets/insurance/i4.png" alt="ins 3">
+                    </div>
+                    <div class="insurance-box p-2 text-center">
+                        <img src="https://yourcenter.ae/website-assets/insurance/i5.jpeg" alt="ins 4">
+                    </div>
+                    <div class="insurance-box p-2 text-center">
+                        <img src="https://yourcenter.ae/website-assets/insurance/i1.jpeg" alt="ins 5">
+                    </div>
+                    <div class="insurance-box p-2 text-center">
+                        <img src="https://yourcenter.ae/website-assets/insurance/i7.png" alt="ins 6">
+                    </div>
+                    <div class="insurance-box p-2 text-center">
+                        <img src="https://yourcenter.ae/website-assets/insurance/damac.jpg" alt="ins 7">
+                    </div>
+                    <div class="insurance-box p-2 text-center">
+                        <img src="https://yourcenter.ae/website-assets/insurance/i8.png" alt="ins 8">
+                    </div>
+                    <div class="insurance-box p-2 text-center">
+                        <img src="https://yourcenter.ae/website-assets/insurance/i11.png" alt="ins 9">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS & Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <!-- Custom JavaScript to Clone the Images -->
+    <script>
+        // Function to clone the scrolling content
+        window.onload = function() {
+            const scrollingWrapper = document.getElementById('scrollingWrapper');
+            const clonedContent = scrollingWrapper.firstElementChild.cloneNode(true);
+            scrollingWrapper.appendChild(clonedContent);
+        }
+    </script>
+
+</body>
+
+</html>
