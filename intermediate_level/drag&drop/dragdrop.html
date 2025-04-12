@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>custom range slider</title>
+</head>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f3f4f6;
+        display: flex;
+        justify-content: center;
+        padding: 50px;
+    }
+
+    .draggable-list {
+        list-style: none;
+        padding: 0;
+        width: 250px;
+    }
+
+    .draggable-list li {
+        padding: 15px 20px;
+        margin-bottom: 10px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        cursor: move;
+        transition: background 0.2s;
+    }
+
+    .draggable-list li.dragging {
+        opacity: 0.5;
+        background-color: #e0f2fe;
+    }
+</style>
+
+<body>
+    <ul class="draggable-list" id="draggable-list">
+        <li draggable="true">🍎 Apple</li>
+        <li draggable="true">🍌 Banana</li>
+        <li draggable="true">🍇 Grape</li>
+        <li draggable="true">🍉 Watermelon</li>
+        <li draggable="true">🍑 Peach</li>
+    </ul>
+
+
+    <script>
+        const listItems = document.querySelectorAll('.draggable-list li');
+        let draggedItem = null;
+
+        listItems.forEach(item => {
+            item.addEventListener('dragstart', () => {
+                draggedItem = item;
+                item.classList.add('dragging');
+            });
+
+            item.addEventListener('dragend', () => {
+                draggedItem = null;
+                item.classList.remove('dragging');
+            });
+
+            item.addEventListener('dragover', (e) => {
+                e.preventDefault(); // Necessary to allow dropping
+                const draggingOverItem = e.target;
+
+                if (draggingOverItem !== draggedItem) {
+                    const list = draggingOverItem.parentNode;
+                    const rect = draggingOverItem.getBoundingClientRect();
+                    const next = (e.clientY - rect.top) > (rect.height / 2);
+                    list.insertBefore(draggedItem, next ? draggingOverItem.nextSibling : draggingOverItem);
+                }
+            });
+        });
+
+
+    </script>
+</body>
+
+</html>
