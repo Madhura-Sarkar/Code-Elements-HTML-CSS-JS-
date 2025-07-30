@@ -1,1 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <title>Cupid’s Courier</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Delius&display=swap');
+
+        body {
+            margin: 0;
+            background: #111;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            color: white;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .light-container {
+            position: relative;
+            width: 120px;
+            height: 320px;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 600px;
+        }
+
+        .cord {
+            width: 4px;
+            height: 60px;
+            background: #bdbdbd;
+            margin: 0 auto;
+        }
+
+        .fixture {
+            width: 40px;
+            height: 30px;
+            background: linear-gradient(to bottom, #c2a061, #846c3b);
+            margin: 0 auto;
+            border-radius: 6px;
+        }
+
+        .shade {
+            width: 150px;
+            height: 75px;
+            background: linear-gradient(to right, #cdcdcd, #909090);
+            margin: 0 -15px;
+            border-radius: 0 0 90px 90px;
+            position: relative;
+            z-index: 1;
+            transform: rotateX(180deg);
+        }
+
+        .bulb_obj {
+            width: 50px;
+            height: 70px;
+            background: radial-gradient(circle at top, #fff5c2 0%, #f9d36d 40%, #ffd362 100%);
+            border-radius: 50% 50% 60% 60% / 60% 60% 100% 100%;
+            margin: -20px auto 0;
+            position: relative;
+            z-index: 0;
+            box-shadow: 0 10px 30px rgba(255, 230, 140, 0.4);
+        }
+
+        .filament {
+            width: 2px;
+            height: 25px;
+            background: #eca32e;
+            position: absolute;
+            left: 50%;
+            top: 10px;
+            transform: translateX(-50%);
+        }
+
+
+        .light-cone {
+            position: absolute;
+            top: 165px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 700px;
+            height: 700px;
+            clip-path: polygon(40% 0%, 60% 0%, 100% 100%, 0% 100%);
+            background: radial-gradient(ellipse at top, rgba(255, 255, 120, 0.4) 0%, rgba(255, 255, 120, 0.15) 50%, transparent 100%);
+            pointer-events: none;
+            z-index: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .brightness-bar-container {
+            margin: 1rem;
+            z-index: 3;
+        }
+
+        .brightness-bar {
+            width: 300px;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+        .retrobox {
+            border-radius: 12px;
+            padding: 32px 24px 24px 24px;
+            width: 340px;
+            text-align: center;
+            position: relative;
+        }
+
+        .retrobox h1 {
+            color: #ff3e6c;
+            font-size: 1.2rem;
+            margin-bottom: 18px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 0 #222, 0 0 8px #fff7;
+        }
+
+        .message {
+            color: #fff;
+            background: #222;
+            border: 2px dashed #fff;
+            border-radius: 8px;
+            padding: 18px 10px;
+            min-height: 60px;
+            margin-bottom: 18px;
+            font-family: "Delius", cursive;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            transition: background 0.2s;
+        }
+
+        .heart {
+            font-size: 2.2rem;
+            color: #ff003c;
+            text-shadow: 0 0 8px #fff, 0 0 16px #ff6f91;
+            animation: beat 1s infinite;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        @keyframes beat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        .btn {
+            background: #fff;
+            color: #ff3e6c;
+            border: 2px solid #ff3e6c;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 1rem;
+            padding: 8px 22px;
+            cursor: pointer;
+            margin-top: 10px;
+            box-shadow: 2px 2px 0 #222;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .btn:hover {
+            background: #ff3e6c;
+            color: #fff;
+        }
+
+        .brightness-bar-container {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .brightness-label {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 0.5rem;
+            transform: rotate(-90deg);
+
+        }
+
+        .brightness-bar {
+            transform: rotate(-90deg);
+            width: 150px;
+            height: 6px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="light-container">
+        <div class="cord"></div>
+        <div class="fixture"></div>
+        <div class="shade"></div>
+        <div class="bulb_obj">
+            <div class="filament"></div>
+        </div>
+        <div class="glow"></div>
+    </div>
+
+    <!-- Bulb -->
+    <div class="bulb-container">
+        <div class="bulb" id="bulb"></div>
+        <div class="light-cone" id="lightCone"></div>
+
+        <!-- Retro message box inside light cone -->
+        <div class="retrobox" id="retrobox"
+            style="position: absolute; top: 360px;  transform: translateX(-50%); z-index: 2;">
+            <div class="heart">❤</div>
+            <h1></h1>
+            <div class="message" id="loveMessage">
+                Click the button to get a love message!
+            </div>
+            <button class="btn" onclick="showMessage()">Show Message</button>
+        </div>
+
+
+        <div class="brightness-bar-container">
+            <!-- <label for="brightnessBar">Brightness (Bulb + Light Glow):</label><br> -->
+            <input type="range" min="0" max="1" step="0.01" value="1" id="brightnessBar" class="brightness-bar">
+        </div>
+    </div>
+
+    <h1 style="margin-left: 1400px; font-family: 'Rouge Script', cursive;">Design & Developed by Ojass Tech</h1>
+
+
+
+    <script>
+        const brightnessBar = document.getElementById('brightnessBar');
+        const bulb = document.getElementById('bulb');
+        const lightCone = document.getElementById('lightCone');
+        const retrobox = document.getElementById('retrobox');
+
+        // Function to apply brightness effects
+        function applyBrightness(value) {
+            const glowIntensity = value * 0.8;
+            bulb.style.boxShadow = `0 0 30px rgba(255, 255, 100, ${glowIntensity})`;
+            lightCone.style.opacity = glowIntensity;
+            retrobox.style.opacity = value;
+        }
+
+        // Ensure brightness is set to 0 on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            brightnessBar.value = 0;
+            applyBrightness(0);
+        });
+
+        // Update on slider input
+        brightnessBar.addEventListener('input', function () {
+            const value = parseFloat(this.value);
+            applyBrightness(value);
+        });
+    </script>
+
+
+    <script>
+        const messages = [
+            "You light up my world like a pixelated heart.",
+            "Our love is more timeless than 8-bit games.",
+            "You are the player two to my player one.",
+            "I’d press start with you any day.",
+            "You make my heart skip a frame.",
+            "Game over? Not with you by my side.",
+            "You’re my favorite high score.",
+            "Together, we’re unbeatable.",
+            "You’re the cheat code to my happiness.",
+            "Let’s save our love forever.",
+            "You had me at 'New Game'",
+            "You're the rarest drop in my loot chest",
+            "Even lag can’t slow down my love for you",
+            "You respawn my happiness every day",
+            "You’re the ultimate boss I never want to beat",
+            "If love were XP, I’d level up with you forever",
+            "You're my co-op partner in this game of life",
+            "Without you, my world feels like a glitch",
+            "You’re the power-up I never knew I needed",
+            "Let’s write our love story in 8-bit magic",
+            "You're the algorithm to my perfect match",
+            "If hearts were data packets, mine would flood your bandwidth",
+            "You're the ping to my server — always connected",
+            "My love for you is like RAM — always active",
+            "If love was a code, you'd be the cleanest syntax",
+            "Together, we’re open-source romance",
+            "You’re the binary to my digital heart: 1 means I love you",
+            "I’d debug a million lines just to make you smile",
+            "You complete my HTML like a closing tag",
+            "You're my favorite feature in the changelog of life",
+            "You auto-complete me",
+            "My heart runs on your code",
+            " You're the syntax to my structure",
+            " Without you, my world throws an error",
+            " You’re my constant in this ever-changing codebase",
+            " You reboot my soul every day",
+            " I’d cache you forever",
+            " You’re the root of all my joy",
+            " Our love is stored in cloud nine",
+            " You're my favorite function",
+            " You trigger all my events",
+            " You’re the semicolon to my statement",
+            " You light up my dark mode",
+            " You turn my 404 into a 200",
+            " I’m wireless, but you’re my signal",
+            " You’re the update I’ve been waiting for",
+            " If I had a git repo, you'd be my main branch",
+            " You're the only variable I never want to change",
+            " My love for you is always in scope",
+            " You're the exception I’d never try to handle",
+            " You're the uptime to my server",
+            " You’re my default setting",
+            " I’d cross an infinite loop just to be with you",
+            " If love was an app, you’d be my home screen",
+            " I’d share my password with you",
+            " You’re the only input I need",
+            " My love for you compiles perfectly",
+            " You’re the Wi-Fi to my laptop",
+            " Together, we’re the perfect algorithm",
+            " I’ve got your IP in my heart",
+            " You’re the semicolon that completes my line",
+            " Our connection is stronger than fiber optics",
+            " I want to Ctrl + S our love forever",
+            " You make my system stable",
+            " You’ve got admin access to my heart",
+            " You’re the firewall between me and sadness",
+            " You’re not a bug — you’re a feature",
+            " My life was in beta until you came along",
+            " You’re my final render",
+            " Even AI can't generate love like this",
+            " You're the default gateway to my happiness",
+            " I’d give you root access to my soul",
+            " You’re the secure socket in my layer",
+            " You make my processor overheat (in a good way)",
+            " Let’s build our future in a shared directory",
+            " I never want to logout of your love",
+            " You’re my forever firmware update",
+            " My heart boots up when I see you",
+            " You’re my favorite class instance",
+            " You’re the query that returned everything I ever needed",
+            " You debug all my sadness",
+            " You’re the DNS that resolves all my problems",
+            " You’re the true value in my array of life",
+            " You encrypt my heart with your love",
+            " Our love is version-controlled",
+            " You’ve got the key to my private repository",
+            " You’re my highest resolution",
+            " You’ve got me stuck in an infinite love loop",
+            " You’re my persistent storage",
+            " You’re the kernel to my system",
+            " You’re my IDEAL IDE",
+            " I’d write love scripts for you daily",
+            " You're my full stack partner — frontend and backend",
+            " You’re my CSS — making my life beautiful",
+            " You animate my dull routines",
+            " I’d let you crash my system anytime",
+            " You're the CDN that delivers my joy instantly",
+            " You're my full-duplex connection",
+            " Our chemistry is stronger than end-to-end encryption",
+            " You’re the CDN to my content",
+            " You’re my MVP (Minimum Viable Partner)",
+            " You are the boolean that makes my logic true",
+            " You’re my best deployment ever",
+            " You ping my soul every second",
+            " You're the uptime to my heartbeat",
+            " You scale my happiness horizontally and vertically",
+            " My love for you is open-source and infinite",
+            " You light up my LEDs",
+            " You’re my OTP — One True Pairing and One-Time Password",
+            " I’d push commits just to stay connected with you",
+            " You're the blockchain to my security",
+            " I see our love in every log file",
+            " You’re my top-priority thread",
+            " You’re the BIOS to my boot",
+            " You’ve refactored my life beautifully",
+            " You’re the selector that picked my heart",
+            " I’d host my heart on your domain",
+            " You optimize my every day",
+            " You’re the heartbeat sensor to my soul",
+            " If I were a function, you'd be my return value",
+            " You keep my logic clean and my life simpler",
+            " You’re the backend to my frontend",
+            " I’d never hard reset our relationship",
+            " Our bandwidth of love is unlimited",
+            " You’re my favorite import statement",
+            " My code never crashes with you around",
+            " I’d write infinite loops to spend forever with you",
+            " You’re the data to my structure",
+            " You make my code beautiful and my life meaningful",
+            " In this vast universe of code, you’re my Hello, World!"
+
+        ];
+        function showMessage() {
+            const msg = messages[Math.floor(Math.random() * messages.length)];
+            document.getElementById('loveMessage').textContent = msg;
+        }
+    </script>
+</body>
+
+</html>
