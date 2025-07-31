@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Farewell Envelope</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: linear-gradient(to right, #232526, #414345);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Raleway', sans-serif;
+      overflow: hidden;
+    }
+
+    .scene {
+      position: relative;
+      width: 600px;
+      height: 360px;
+    }
+
+    .envelope-container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      perspective: 1500px;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .envelope {
+      width: 100%;
+      height: 100%;
+      background: #f1c40f;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 1s ease;
+    }
+
+    .flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background: #d4ac0d;
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      transform-origin: top;
+      transition: transform 0.8s ease;
+      z-index: 2;
+    }
+
+    .flap.open {
+      transform: rotateX(-160deg);
+    }
+
+    .card {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      background: #2c3e50;
+      color: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+      transform: translateY(0) scale(0.9);
+      opacity: 0;
+      transition: transform 1s ease, opacity 1s ease;
+      z-index: 3;
+    }
+
+    .card.open {
+      transform: translateY(-420px) scale(1);
+      opacity: 1;
+    }
+
+    .card h1 {
+      font-size: 2.5rem;
+      color: #f1c40f;
+      margin-bottom: 20px;
+    }
+
+    .card p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .signature {
+      font-style: italic;
+      margin-top: 20px;
+      text-align: right;
+      color: #ecf0f1;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background-color: #f1c40f;
+      color: #2c3e50;
+      border: none;
+      padding: 6px 12px;
+      font-weight: bold;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .close-btn:hover {
+      background-color: #d4ac0d;
+    }
+
+    @media (max-width: 650px) {
+      .scene {
+        width: 90%;
+        height: auto;
+      }
+
+      .card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="scene">
+  <div class="card" id="card">
+    <button class="close-btn" onclick="closeEnvelope(event)">Close ✖</button>
+    <h1>Farewell, Pookie 👨‍💻🎀</h1>
+    <p>
+      Saying goodbye is never easy—especially to someone who brought so much life and energy into the workspace.
+      You've left behind more than just completed tasks—you've left behind a legacy of warmth, humor, and excellence.
+    </p>
+    <p>
+      Wherever you go, carry our memories and friendship with you. The office won't be the same without you, but the world is gaining someone truly exceptional.
+    </p>
+    <div class="signature">— Your Madhura</div>
+  </div>
+
+  <div class="envelope-container" onclick="openEnvelope()">
+    <div class="envelope" id="envelope">
+      <div class="flap" id="flap"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let opened = false;
+
+  function openEnvelope() {
+    if (opened) return;
+    document.getElementById("flap").classList.add("open");
+    document.getElementById("card").classList.add("open");
+    opened = true;
+  }
+
+  function closeEnvelope(event) {
+    event.stopPropagation(); // Prevent reopening
+    document.getElementById("flap").classList.remove("open");
+    document.getElementById("card").classList.remove("open");
+    opened = false;
+  }
+</script>
+
+</body>
+</html>
